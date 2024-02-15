@@ -35,8 +35,9 @@ const paginatedDataList = computed(() => {
 // 总页数
 const totalPages = computed(() => Math.ceil(currentDataList.value.length / itemsPerPage.value));
 // 翻页函数
-const gotoPage = ref();
-function goToPage(page: any) {
+const gotoPage = ref('');
+function goToPage(page: number | string) {
+    if (typeof page !== 'number' || page === currentPage.value) return;
     if (page < 0 || page > totalPages.value) {
         alert('请输入合理页码');
         return;
@@ -101,7 +102,7 @@ const pagination = usePagination(currentPage, totalPages);
             <div @click="nextPage">&gt;</div>
         </div>
         <div class="goto">
-            <input type="text" v-model.number="gotoPage" placeholder="跳转到" />
+            <input type="text" v-model.number="gotoPage" placeholder="跳转到" @keyup.enter="goToPage(gotoPage)" />
             <div @click="goToPage(gotoPage)">跳转</div>
         </div>
     </div>
@@ -123,7 +124,7 @@ const pagination = usePagination(currentPage, totalPages);
             font-style: italic;
             color: gray;
             text-align: center;
-            margin: 0 10px;
+            margin-right: 10px;
         }
         .text {
             overflow: hidden;
