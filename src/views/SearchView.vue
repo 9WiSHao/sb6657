@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import fkEachother from '@/data/fk-eachother.json';
 import fkPlayer from '@/data/fk-player.json';
@@ -15,20 +15,35 @@ const searchQuery = computed(() => route.query.s);
 
 const filteredData = computed(() => {
     if (typeof searchQuery.value !== 'string') return [];
-
     // 都转小写，实现不区分大小写搜索
     const query = searchQuery.value.toLowerCase();
     return combinedData.filter((item) => item.toLocaleLowerCase().includes(query));
+});
+// 转义特殊字符串正则
+function escapeRegExp(string: string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+// 高亮搜索关键字
+const hightLightData = computed(() => {
+    if (typeof searchQuery.value !== 'string') return [];
+    const query = searchQuery.value.toLowerCase();
+    // 以搜索词做正则匹配，不区分大小写
+    const regex = new RegExp(escapeRegExp(query), 'gi');
+    // 把之前搜索完成后的数组，加上高亮
+    return filteredData.value.map((item) => {
+        return item.replace(regex, (match) => `<span style="background-color: yellow">${match}</span>`);
+    });
 });
 </script>
 
 <template>
     <div class="search">
         <div v-if="filteredData.length > 0">
+            <div class="tip">搜索结果:</div>
             <div class="list">
                 <div class="data" v-for="(item, index) in filteredData" :key="index">
                     <div class="index">{{ index + 1 }}</div>
-                    <div class="text">{{ item }}</div>
+                    <div class="text" v-html="hightLightData[index]"></div>
                     <div class="copy" @click="copyToClipboard(item)">复制</div>
                 </div>
             </div>
@@ -41,6 +56,11 @@ const filteredData = computed(() => {
 a {
     color: #308bf2;
     text-decoration: none;
+}
+.tip {
+    margin-left: 20px;
+    font-size: 30px;
+    color: rgb(71, 71, 71);
 }
 .list {
     width: 100%;
