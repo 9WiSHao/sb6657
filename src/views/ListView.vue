@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed, ref, type Ref } from 'vue';
 import { useRoute } from 'vue-router';
-import fkEachother from '@/data/fk-eachother';
-import fkPlayer from '@/data/fk-player';
-import fkWjq from '@/data/fk-wjq';
-import repeat from '@/data/repeat';
-import showTime from '@/data/showtime';
+import fkEachother from '@/data/fk-eachother.json';
+import fkPlayer from '@/data/fk-player.json';
+import fkWjq from '@/data/fk-wjq.json';
+import repeat from '@/data/repeat.json';
+import showTime from '@/data/showtime.json';
 import { copyToClipboard } from '@/utils/copy';
 
 interface TabDataMap {
