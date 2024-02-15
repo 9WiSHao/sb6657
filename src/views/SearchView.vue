@@ -14,11 +14,11 @@ const route = useRoute();
 const searchQuery = computed(() => route.query.s);
 
 const filteredData = computed(() => {
-    const query = searchQuery.value;
-    if (typeof query === 'string') {
-        return combinedData.filter((item) => item.includes(query));
-    }
-    return [];
+    if (typeof searchQuery.value !== 'string') return [];
+
+    // 都转小写，实现不区分大小写搜索
+    const query = searchQuery.value.toLowerCase();
+    return combinedData.filter((item) => item.toLocaleLowerCase().includes(query));
 });
 </script>
 
@@ -46,24 +46,25 @@ a {
     width: 100%;
     .data {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         padding: 4px 0;
         &:nth-child(even) {
             background-color: #e5e5e5;
         }
         .index {
-            width: 40px;
+            width: 60px;
             font-size: 30px;
             font-style: italic;
             color: gray;
             text-align: center;
+            margin-right: 10px;
         }
         .text {
-            width: 80%;
             overflow: hidden;
             word-wrap: break-word;
             word-break: normal;
+            flex: 1;
         }
         .copy {
             height: 36px;
@@ -75,6 +76,7 @@ a {
             font-weight: bolder;
             text-align: center;
             line-height: 36px;
+            margin: 0 10px;
             &:hover {
                 background-color: #c93535;
                 cursor: pointer;
@@ -87,4 +89,3 @@ a {
     padding-bottom: 40px;
 }
 </style>
-@/utils/windowBOM

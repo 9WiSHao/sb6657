@@ -103,7 +103,7 @@ const pagination = usePagination(currentPage, totalPages);
             <div @click="nextPage">&gt;</div>
         </div>
         <div class="goto">
-            <input type="text" v-model.number="gotoPage" placeholder="跳转到" @keyup.enter="goToPage(gotoPage)" />
+            <input type="text" v-model.number="gotoPage" placeholder="跳转到" @keydown.enter="goToPage(gotoPage)" />
             <div @click="goToPage(gotoPage)">跳转</div>
         </div>
     </div>
@@ -202,4 +202,3 @@ const pagination = usePagination(currentPage, totalPages);
     }
 }
 </style>
-@/utils/windowBOM

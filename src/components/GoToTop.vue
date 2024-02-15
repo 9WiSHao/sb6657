@@ -25,11 +25,11 @@ onUnmounted(() => {
 .back-to-top {
     height: 40px;
     width: 40px;
-    background-color: rgba(86, 86, 86, 0.2);
+    background-color: rgba(86, 86, 86, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: gray;
+    color: #fff;
     position: fixed;
     right: 10px;
     bottom: 20px;
