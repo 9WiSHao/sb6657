@@ -30,6 +30,7 @@ const itemsPerPage = ref(50);
 const paginatedDataList = computed(() => {
     const start = (currentPage.value - 1) * itemsPerPage.value;
     const end = start + itemsPerPage.value;
+    scrollToTop();
     return currentDataList.value.slice(start, end);
 });
 // 总页数
@@ -43,7 +44,6 @@ function goToPage(page: number | string) {
         return;
     }
     currentPage.value = page;
-    scrollToTop();
 }
 function nextPage() {
     if (currentPage.value < totalPages.value) currentPage.value++;
