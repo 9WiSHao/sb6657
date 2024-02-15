@@ -22,7 +22,7 @@
                 <img src="@/assets/img/github.png" alt="" />
             </div>
             <div class="more">
-                <div class="github"><a href="https://github.com/9WiSHao/sb6657">此项目github地址</a>、<a href="https://github.com/AmorDL/fk6657.github.io">部署地址</a></div>
+                <div class="github">此项目github<a href="https://github.com/9WiSHao/sb6657">源码地址</a>、<a href="https://github.com/AmorDL/fk6657.github.io">部署地址</a></div>
                 <div class="author">网站制作：<a href="https://github.com/AmorDL">AmorDL</a> 、<a href="https://github.com/9WiSHao">9WiSHao</a></div>
             </div>
         </div>
@@ -34,7 +34,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 a {
     color: #308bf2;
@@ -53,6 +53,9 @@ a {
         font-weight: 800;
         color: red;
         margin-bottom: 20px;
+    }
+    .hello2 {
+        margin: 10px;
     }
 }
 .submission,
@@ -106,6 +109,7 @@ a {
 }
 
 .message {
+    margin-bottom: 20px;
     .top {
         img {
             height: 60px;

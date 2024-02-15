@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, type Ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, onBeforeRouteUpdate } from 'vue-router';
 import fkEachother from '@/data/fk-eachother.json';
 import fkPlayer from '@/data/fk-player.json';
 import fkWjq from '@/data/fk-wjq.json';
@@ -20,7 +20,9 @@ const tabDataMap: TabDataMap = {
 };
 const route = useRoute();
 const currentDataList = computed(() => tabDataMap[route.path]);
-
+onBeforeRouteUpdate(() => {
+    currentPage.value = 1;
+});
 // 分页相关内容
 const currentPage = ref(1);
 const itemsPerPage = ref(50);
@@ -109,24 +111,25 @@ const pagination = usePagination(currentPage, totalPages);
     width: 100%;
     .data {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         padding: 4px 0;
         &:nth-child(even) {
             background-color: #e5e5e5;
         }
         .index {
-            width: 40px;
+            width: 60px;
             font-size: 30px;
             font-style: italic;
             color: gray;
             text-align: center;
+            margin: 0 10px;
         }
         .text {
-            width: 80%;
             overflow: hidden;
             word-wrap: break-word;
             word-break: normal;
+            flex: 1;
         }
         .copy {
             height: 36px;
@@ -138,6 +141,7 @@ const pagination = usePagination(currentPage, totalPages);
             font-weight: bolder;
             text-align: center;
             line-height: 36px;
+            margin: 0 10px;
             &:hover {
                 background-color: #c93535;
                 cursor: pointer;
