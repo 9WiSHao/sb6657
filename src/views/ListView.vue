@@ -6,7 +6,7 @@ import fkPlayer from '@/data/fk-player.json';
 import fkWjq from '@/data/fk-wjq.json';
 import repeat from '@/data/repeat.json';
 import showTime from '@/data/showtime.json';
-import { copyToClipboard } from '@/utils/copy';
+import { copyToClipboard, scrollToTop } from '@/utils/windowBOM';
 
 interface TabDataMap {
     [key: string]: string[];
@@ -43,6 +43,7 @@ function goToPage(page: number | string) {
         return;
     }
     currentPage.value = page;
+    scrollToTop();
 }
 function nextPage() {
     if (currentPage.value < totalPages.value) currentPage.value++;
@@ -201,3 +202,4 @@ const pagination = usePagination(currentPage, totalPages);
     }
 }
 </style>
+@/utils/windowBOM

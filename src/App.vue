@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import { RouterView, useRoute, useRouter } from 'vue-router';
 import { tabEle } from '@/data/tab';
+import GoToTop from '@/components/GoToTop.vue';
+
 const route = useRoute();
 const router = useRouter();
 function navigateTo(path: string): void {
@@ -39,6 +41,7 @@ function search() {
             <RouterView />
         </div>
     </div>
+    <GoToTop></GoToTop>
 </template>
 
 <style scoped lang="scss">

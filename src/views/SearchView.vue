@@ -6,7 +6,7 @@ import fkPlayer from '@/data/fk-player.json';
 import fkWjq from '@/data/fk-wjq.json';
 import repeat from '@/data/repeat.json';
 import showTime from '@/data/showtime.json';
-import { copyToClipboard } from '@/utils/copy';
+import { copyToClipboard } from '@/utils/windowBOM';
 
 const combinedData = [...fkEachother, ...fkPlayer, ...fkWjq, ...repeat, ...showTime];
 
@@ -87,3 +87,4 @@ a {
     padding-bottom: 40px;
 }
 </style>
+@/utils/windowBOM
