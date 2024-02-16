@@ -6,9 +6,10 @@ import fkPlayer from '@/data/fk-player.json';
 import fkWjq from '@/data/fk-wjq.json';
 import repeat from '@/data/repeat.json';
 import showTime from '@/data/showtime.json';
+import ququbird from '@/data/ququ.json';
 import { copyToClipboard } from '@/utils/windowBOM';
 
-const combinedData = [...fkEachother, ...fkPlayer, ...fkWjq, ...repeat, ...showTime];
+const combinedData = [...fkEachother, ...fkPlayer, ...fkWjq, ...repeat, ...showTime, ...ququbird];
 
 const route = useRoute();
 const searchQuery = computed(() => route.query.s);

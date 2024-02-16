@@ -3,5 +3,6 @@ export const tabEle = [
     { text: '直播间互喷篇', path: '/fk-eachother' },
     { text: '喷选手篇', path: '/fk-player' },
     { text: '“+1”篇', path: '/repeat' },
-    { text: '群魔乱舞篇', path: '/showtime' }
+    { text: '群魔乱舞篇', path: '/showtime' },
+    { text: 'QUQU篇', path: '/ququ' }
 ];

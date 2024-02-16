@@ -6,6 +6,7 @@ import fkPlayer from '@/data/fk-player.json';
 import fkWjq from '@/data/fk-wjq.json';
 import repeat from '@/data/repeat.json';
 import showTime from '@/data/showtime.json';
+import ququbird from '@/data/ququ.json';
 import { copyToClipboard, scrollToTop } from '@/utils/windowBOM';
 import { shuffleArray } from '@/utils/algorithm';
 
@@ -17,7 +18,8 @@ const tabDataMap: TabDataMap = {
     '/fk-eachother': fkEachother,
     '/fk-player': fkPlayer,
     '/repeat': repeat,
-    '/showtime': showTime
+    '/showtime': showTime,
+    '/ququ': ququbird
 };
 const route = useRoute();
 
