@@ -5,7 +5,7 @@ import { tabEle } from '@/data/tab';
 const route = useRoute();
 const router = useRouter();
 function navigateTo(path: string): void {
-    console.log(path);
+    console.log('路由', path);
     router.push(path);
 }
 </script>

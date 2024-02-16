@@ -1,16 +1,10 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import fkEachother from '@/data/fk-eachother.json';
-import fkPlayer from '@/data/fk-player.json';
-import fkWjq from '@/data/fk-wjq.json';
-import repeat from '@/data/repeat.json';
-import showTime from '@/data/showtime.json';
-import ququbird from '@/data/ququ.json';
 import { copyToClipboard } from '@/utils/windowBOM';
+import { useGengStore } from '@/store/geng';
 
-const combinedData = [...fkEachother, ...fkPlayer, ...fkWjq, ...repeat, ...showTime, ...ququbird];
-
+const combinedData = useGengStore().combinedData;
 const route = useRoute();
 const searchQuery = computed(() => route.query.s);
 

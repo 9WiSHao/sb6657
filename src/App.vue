@@ -3,6 +3,10 @@ import { RouterView } from 'vue-router';
 import GoToTop from '@/components/GoToTop.vue';
 import MainPanel from '@/components/MainPanel.vue';
 import MainTab from '@/components/MainTab.vue';
+import { onMounted } from 'vue';
+import { useGengStore } from '@/store/geng';
+// 初始化的时候加载数据
+onMounted(() => useGengStore().initializeData());
 </script>
 
 <template>

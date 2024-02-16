@@ -1,33 +1,13 @@
 <script setup lang="ts">
 import { computed, ref, type Ref } from 'vue';
 import { useRoute, onBeforeRouteUpdate } from 'vue-router';
-import fkEachother from '@/data/fk-eachother.json';
-import fkPlayer from '@/data/fk-player.json';
-import fkWjq from '@/data/fk-wjq.json';
-import repeat from '@/data/repeat.json';
-import showTime from '@/data/showtime.json';
-import ququbird from '@/data/ququ.json';
 import { copyToClipboard, scrollToTop } from '@/utils/windowBOM';
-import { shuffleArray } from '@/utils/algorithm';
+import { useGengStore } from '@/store/geng';
 
-interface TabDataMap {
-    [key: string]: string[];
-}
-const tabDataMap: TabDataMap = {
-    '/fk-wjq': fkWjq,
-    '/fk-eachother': fkEachother,
-    '/fk-player': fkPlayer,
-    '/repeat': repeat,
-    '/showtime': showTime,
-    '/ququ': ququbird
-};
 const route = useRoute();
+const tabDataMap = useGengStore().tabDataMap;
 
-const currentDataList = computed(() => {
-    const copy = [...tabDataMap[route.path]];
-    // 乱序一下显示的烂梗
-    return shuffleArray(copy);
-});
+const currentDataList = computed(() => tabDataMap[route.path]);
 onBeforeRouteUpdate(() => {
     currentPage.value = 1;
 });
