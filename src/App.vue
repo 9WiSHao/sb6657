@@ -11,7 +11,7 @@ onMounted(() => useGengStore().initializeData());
 
 <template>
     <div class="title">
-        <img src="@/assets/img/boom.png" alt="超级大爆" />
+        <img src="@/assets/img/boom.jpg" alt="超级大爆" />
     </div>
     <MainPanel></MainPanel>
     <div class="main">
