@@ -7,6 +7,7 @@ import fkWjq from '@/data/fk-wjq.json';
 import repeat from '@/data/repeat.json';
 import showTime from '@/data/showtime.json';
 import { copyToClipboard, scrollToTop } from '@/utils/windowBOM';
+import { shuffleArray } from '@/utils/algorithm';
 
 interface TabDataMap {
     [key: string]: string[];
@@ -19,7 +20,12 @@ const tabDataMap: TabDataMap = {
     '/showtime': showTime
 };
 const route = useRoute();
-const currentDataList = computed(() => tabDataMap[route.path]);
+
+const currentDataList = computed(() => {
+    const copy = [...tabDataMap[route.path]];
+    // 乱序一下显示的烂梗
+    return shuffleArray(copy);
+});
 onBeforeRouteUpdate(() => {
     currentPage.value = 1;
 });

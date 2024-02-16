@@ -17,7 +17,10 @@ const filteredData = computed(() => {
     if (typeof searchQuery.value !== 'string') return [];
     // 都转小写，实现不区分大小写搜索
     const query = searchQuery.value.toLowerCase();
-    return combinedData.filter((item) => item.toLocaleLowerCase().includes(query));
+    // 搜索结果数组
+    const result = combinedData.filter((item) => item.toLocaleLowerCase().includes(query));
+    // 去重
+    return [...new Set(result)];
 });
 // 转义特殊字符串正则
 function escapeRegExp(string: string) {
@@ -30,9 +33,7 @@ const hightLightData = computed(() => {
     // 以搜索词做正则匹配，不区分大小写
     const regex = new RegExp(escapeRegExp(query), 'gi');
     // 把之前搜索完成后的数组，加上高亮
-    return filteredData.value.map((item) => {
-        return item.replace(regex, (match) => `<span style="background-color: yellow">${match}</span>`);
-    });
+    return filteredData.value.map((item) => item.replace(regex, (match) => `<span style="background-color: yellow">${match}</span>`));
 });
 </script>
 
