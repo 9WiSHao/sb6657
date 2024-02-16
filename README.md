@@ -9,7 +9,7 @@
 项目灵感来源于 [AmorDL的项目 sb6657.cn](https://github.com/AmorDL/fk6657.github.io)
 现已与其合作，欢迎各位贡献者补充和共同完善
 
-在线访问地址：[[sb6657.cn](https://sb6657.cn)](https://sb6657.cn)
+在线访问地址：[sb6657.cn](https://sb6657.cn)
 
 ## 技术栈
 
