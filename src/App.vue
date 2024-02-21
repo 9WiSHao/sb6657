@@ -4,9 +4,9 @@ import GoToTop from '@/components/GoToTop.vue';
 import MainPanel from '@/components/MainPanel.vue';
 import MainTab from '@/components/MainTab.vue';
 import { onMounted } from 'vue';
-import { useGengStore } from '@/store/geng';
+import { useMemesStore } from '@/store/memes';
 // 初始化的时候加载数据
-onMounted(() => useGengStore().initializeData());
+onMounted(() => useMemesStore().initializeData());
 </script>
 
 <template>

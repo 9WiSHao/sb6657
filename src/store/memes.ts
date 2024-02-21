@@ -7,7 +7,7 @@ interface TabDataMap {
     [key: string]: JsonData;
 }
 
-export const useGengStore = defineStore('geng', () => {
+export const useMemesStore = defineStore('memes', () => {
     // 分类存放烂梗对象
     const tabDataMap = ref<TabDataMap>({});
     // 合并起来的烂梗数组

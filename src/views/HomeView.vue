@@ -1,10 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HomeHello from '@/components/HomeView/HomeHello.vue';
+</script>
 <template>
     <div class="home">
-        <div class="hello">
-            <div class="hello1">你好，玩小将</div>
-            <div class="hello2">这是一个玩机器弹幕烂梗收集网站，尽情欣赏你们的烂梗吧。</div>
-        </div>
+        <HomeHello></HomeHello>
         <div class="submission">
             <div class="top">
                 <div class="line1"></div>
@@ -40,24 +39,7 @@ a {
     color: #308bf2;
     text-decoration: none;
 }
-.hello {
-    width: 100%;
-    padding: 20px 0;
-    border: 6px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 18px;
-    .hello1 {
-        font-size: 40px;
-        font-weight: 800;
-        color: red;
-        margin-bottom: 20px;
-    }
-    .hello2 {
-        margin: 10px;
-    }
-}
+
 .submission,
 .message {
     width: 100%;

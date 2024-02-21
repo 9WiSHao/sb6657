@@ -2,10 +2,10 @@
 import { computed, ref, type Ref } from 'vue';
 import { useRoute, onBeforeRouteUpdate } from 'vue-router';
 import { copyToClipboard, scrollToTop } from '@/utils/windowBOM';
-import { useGengStore } from '@/store/geng';
+import { useMemesStore } from '@/store/memes';
 
 const route = useRoute();
-const tabDataMap = useGengStore().tabDataMap;
+const tabDataMap = useMemesStore().tabDataMap;
 
 const currentDataList = computed(() => tabDataMap[route.path]);
 onBeforeRouteUpdate(() => {

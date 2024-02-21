@@ -2,9 +2,9 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { copyToClipboard } from '@/utils/windowBOM';
-import { useGengStore } from '@/store/geng';
+import { useMemesStore } from '@/store/memes';
 
-const combinedData = useGengStore().combinedData;
+const combinedData = useMemesStore().combinedData;
 const route = useRoute();
 const searchQuery = computed(() => route.query.s);
 
