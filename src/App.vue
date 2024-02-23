@@ -1,10 +1,20 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import { RouterView, useRouter } from 'vue-router';
 import GoToTop from '@/components/GoToTop.vue';
 import MainPanel from '@/components/MainPanel.vue';
 import MainTab from '@/components/MainTab.vue';
-import { onMounted } from 'vue';
+import { onMounted, onBeforeMount } from 'vue';
 import { useMemesStore } from '@/store/memes';
+// 应对github page之类的重定向，实现部署spa能用url查询定向
+const redirect = sessionStorage.getItem('redirect');
+onBeforeMount(async () => {
+    if (redirect) {
+        console.log('重定向到', redirect);
+        await useRouter().push(redirect);
+        sessionStorage.removeItem('redirect');
+    }
+});
+
 // 初始化的时候加载数据
 onMounted(() => useMemesStore().initializeData());
 </script>

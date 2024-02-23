@@ -5,12 +5,32 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>6657超级大爆</title>
-    </head>
-    <body>
-        <div id="app"></div>
-        <script type="module" src="/src/main.ts"></script>
         <script>
-            window.location.href = '/';
+            /**
+             * 应对github page之类的部署单页面应用时，重定向错误问题
+             * 这种遇到url会直接去根目录找对应文件，如果没有就直接进入404.html
+             * 所以在404.html里暂存当前路径，然后重定向回首页，首页再改url就能实现单页面应用
+             */
+            // 如果你的页面访问路径是 www.xxx.com/projectname ,这里就填'/projectname'
+            // 如果访问路径直接是 www.xxx.com根目录，就直接填'/'
+            // 注意vite.config.ts也要相应更改
+            const projectName = '/';
+
+            let relativePath = location.pathname;
+            // 路径以项目名开头时，移除掉。不然会因为vite的处理，重复一次
+            if (relativePath.startsWith(projectName)) {
+                // 移除基础路径
+                relativePath = relativePath.substring(projectName.length);
+            }
+            // 添加查询字符串
+            if (window.location.search) {
+                relativePath += window.location.search;
+            }
+            // 保存最终的路径到sessionStorage，用于SPA中的重定向
+            sessionStorage.setItem('redirect', relativePath);
+            // 重定向到基础路径
+            window.location.href = projectName;
         </script>
-    </body>
+    </head>
+    <body></body>
 </html>
