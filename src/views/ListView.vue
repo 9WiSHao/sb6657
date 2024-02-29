@@ -75,7 +75,7 @@ const pagination = usePagination(currentPage, totalPages);
     <div class="list">
         <div class="data" v-for="(item, index) in paginatedDataList" :key="index">
             <div class="index">{{ index + (currentPage - 1) * itemsPerPage + 1 }}</div>
-            <div class="text">{{ item }}</div>
+            <div class="text" @click="copyToClipboard(item)">{{ item }}</div>
             <div class="copy" @click="copyToClipboard(item)">复制</div>
         </div>
     </div>
@@ -107,6 +107,9 @@ const pagination = usePagination(currentPage, totalPages);
         &:nth-child(even) {
             background-color: #e5e5e5;
         }
+        &:hover {
+            background: #aeaeae;
+        }
         .index {
             width: 60px;
             font-size: 30px;
@@ -120,6 +123,9 @@ const pagination = usePagination(currentPage, totalPages);
             word-wrap: break-word;
             word-break: normal;
             flex: 1;
+            &:hover {
+                cursor: pointer;
+            }
         }
         .copy {
             height: 36px;

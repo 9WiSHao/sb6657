@@ -39,7 +39,7 @@ const hightLightData = computed(() => {
             <div class="list">
                 <div class="data" v-for="(item, index) in filteredData" :key="index">
                     <div class="index">{{ index + 1 }}</div>
-                    <div class="text" v-html="hightLightData[index]"></div>
+                    <div class="text" @click="copyToClipboard(item)" v-html="hightLightData[index]"></div>
                     <div class="copy" @click="copyToClipboard(item)">复制</div>
                 </div>
             </div>
@@ -68,6 +68,9 @@ a {
         &:nth-child(even) {
             background-color: #e5e5e5;
         }
+        &:hover {
+            background: #aeaeae;
+        }
         .index {
             width: 60px;
             font-size: 30px;
@@ -81,6 +84,9 @@ a {
             word-wrap: break-word;
             word-break: normal;
             flex: 1;
+            &:hover {
+                cursor: pointer;
+            }
         }
         .copy {
             height: 36px;
