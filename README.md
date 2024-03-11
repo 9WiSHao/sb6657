@@ -15,9 +15,13 @@
 
 ## 技术栈
 
-vue3 + typescript
+vue3 + typescript + vite
 
-目前为纯前端静态页面，可直接部署在github page上。
+此处为纯前端静态页面版本，可直接部署在github page上。
+
+## 重构
+
+前后端分离版本开发中，见 [6657MemesHub](https://github.com/orgs/6657MemesHub/repositories)
 
 ## 数据结构说明
 
