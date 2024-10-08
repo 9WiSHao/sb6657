@@ -21,7 +21,9 @@ vue3 + typescript + vite
 
 ## 重构
 
-前后端分离版本开发中，见 [6657MemesHub](https://github.com/orgs/6657MemesHub/repositories)
+~~前后端分离版本开发中，见 [6657MemesHub](https://github.com/orgs/6657MemesHub/repositories)~~
+学业与工作繁忙，此版已摆烂，交付给他人制作，见 https://github.com/SEhzm/sb6657 ，SE小何开发的新版。
+继承6657烂梗的遗志继续战斗下去
 
 ## 数据结构说明
 
